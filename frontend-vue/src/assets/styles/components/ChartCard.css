@@ -1,0 +1,46 @@
+.chart-card {
+    /* (★수정★) 
+      ChartCard 자체는 이제 배경/그림자가 필요 없음
+      부모(.chart-section-card)가 담당
+    */
+    background-color: transparent; /* 배경 없음 */
+    border-radius: 0;
+    box-shadow: none; /* 그림자 없음 */
+    padding: 0; /* 패딩 없음 */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-title {
+    /* (★수정★) 이미지(image_730764.png)의 부제목 스타일 */
+    font-size: 0.875rem; /* 14px */
+    font-weight: 600;
+    color: #374151; /* 약간 연한 검정 */
+    margin: 0 0 12px 0; /* 차트와의 간격 */
+}
+
+/*
+  차트가 꽉 차도록 flex-grow: 1을 설정합니다.
+*/
+.chart-placeholder {
+    flex-grow: 1; /* 남은 공간을 모두 차지 (차트가 커지도록) */
+    position: relative; /* LineChart가 이 크기를 기준으로 잡도록 */
+    min-height: 200px; /* 차트의 최소 높이 */
+}
+
+/* 차트가 로딩 중일 때 표시될 텍스트 스타일 
+  (placeholder와 동일한 크기를 가지도록)
+*/
+.chart-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    min-height: 200px;
+    color: #9ca3af; /* 회색 글씨 */
+    font-size: 1rem;
+    font-weight: 500;
+    background-color: #f3f4f6;
+    border-radius: 8px;
+}

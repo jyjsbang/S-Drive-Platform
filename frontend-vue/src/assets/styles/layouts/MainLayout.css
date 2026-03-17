@@ -1,0 +1,25 @@
+.app-layout {
+    display: flex;
+    height: 100vh;
+    overflow: hidden; /* 앱 전체 스크롤 금지 */
+    background-color: #f9fafb;
+}
+.main-content-wrapper {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden; /* 헤더 + 컨텐츠 래퍼도 스크롤 금지 */
+}
+
+/* (★핵심 수정★) 
+  padding을 제거하고, 자식(페이지)이 100% 높이를 
+  차지할 수 있는 flex 컨테이너 역할만 합니다.
+*/
+.page-content {
+    flex-grow: 1;
+    background-color: #f9fafb;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* 이 컨테이너 자체도 스크롤 금지 */
+}

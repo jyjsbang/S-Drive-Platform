@@ -1,0 +1,81 @@
+.stats-kpi-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    padding: 20px 24px;
+    display: flex;
+    flex-direction: row; /* (★수정★) 가로 배치 */
+    justify-content: space-between; /* (★수정★) 양쪽 정렬 */
+    align-items: center; /* (★수정★) 세로 중앙 정렬 */
+    gap: 16px;
+    min-height: 90px; /* (★추가★) 카드 최소 높이 보장 */
+}
+
+/* (★수정★) 텍스트 영역 */
+.card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 4px; /* (★수정★) title과 value 사이 간격 */
+}
+
+/* (★수정★) "누적 이용자 수" */
+.title {
+    font-size: 0.875rem; /* 14px */
+    font-weight: 500;
+    color: #4b5563; /* gray-600 */
+}
+
+/* (★수정★) "12,847 명" */
+.value {
+    font-size: 1.75rem; /* 28px */
+    font-weight: 700;
+    color: #111827;
+}
+
+/* (★수정★) 아이콘 래퍼 (image_a26176.png 스타일) */
+.icon-wrapper {
+    width: 44px; /* (★수정★) */
+    height: 44px; /* (★수정★) */
+    border-radius: 8px; /* (★수정★) */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.icon-wrapper .icon {
+    width: 22px; /* (★수정★) */
+    height: 22px; /* (★수정★) */
+}
+
+/* (★유지★) 아이콘 배경색 */
+.bg-blue-100 {
+    background-color: #dbeafe;
+    color: #2563eb;
+}
+.bg-cyan-100 {
+    background-color: #cffafe;
+    color: #0891b2;
+}
+.bg-indigo-100 {
+    background-color: #e0e7ff;
+    color: #4f46e5;
+}
+.bg-red-100 {
+    background-color: #fee2e2;
+    color: #dc2626;
+}
+.bg-orange-100 {
+    background-color: #ffedd5;
+    color: #c2410c;
+}
+.bg-green-100 {
+    background-color: #dcfce7;
+    color: #16a34a;
+}
+.bg-purple-100 {
+    background-color: #f3e8ff;
+    color: #7e22ce;
+}
+
+/* (★삭제★) 기존 card-header, footer, change 관련 스타일 모두 제거 */

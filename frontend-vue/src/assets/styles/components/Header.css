@@ -1,0 +1,82 @@
+.header {
+    height: 64px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e5e7eb;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 24px;
+    flex-shrink: 0;
+}
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+.page-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #111827;
+    margin: 0;
+}
+.header-left .date-info {
+    font-size: 0.875rem;
+    color: #6b7280;
+    position: relative;
+    top: 2px;
+}
+.header-right {
+    display: flex;
+    gap: 16px;
+    /* (★추가★) 드롭다운이 겹치지 않도록 */
+    align-items: center;
+}
+.icon-button {
+    background-color: transparent;
+    border: none;
+    border-radius: 50%;
+    padding: 8px;
+    color: #6b7280;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* (★추가★) 배지 위치 기준 */
+    position: relative;
+}
+.icon-button:hover {
+    background-color: #f3f4f6;
+}
+.icon-button svg {
+    width: 24px;
+    height: 24px;
+}
+
+/* --- (★이하 추가된 스타일★) --- */
+
+/* 알림 아이콘 + 드롭다운 래퍼 */
+.notification-wrapper {
+    position: relative;
+}
+
+/* 알림 배지 (빨간 점 또는 숫자) */
+.notification-badge {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    background-color: #ef4444; /* red-500 */
+    color: white;
+    border-radius: 9999px; /* full circle */
+
+    /* (★) 숫자 표시를 위한 스타일 */
+    min-width: 18px;
+    height: 18px;
+    padding: 0 5px;
+    font-size: 0.75rem; /* 12px */
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #ffffff; /* 흰색 테두리 */
+}

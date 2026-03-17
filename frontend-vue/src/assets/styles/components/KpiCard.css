@@ -1,0 +1,41 @@
+.kpi-card {
+    color: white;
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    height: 100%;
+}
+
+/* 이미지(image_72f8c5.png)를 기반으로 한 카드별 색상 */
+.kpi-card-1 {
+    background-color: #93c5fd; /* 연한 파랑 (누적 이용자 수) */
+}
+.kpi-card-2 {
+    background-color: #60a5fa; /* 중간 파랑 (발생 위험 행동 수) */
+}
+.kpi-card-3 {
+    background-color: #3b82f6; /* 진한 파랑 (안전모 착용률) */
+}
+.kpi-card-4 {
+    background-color: #2563eb; /* 더 진한 파랑 (운행거리 합계) */
+}
+
+.value {
+    font-size: 2.25rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+.label {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 16px;
+}
+.change-text {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* * (★수정★)
+ * .kpi-card-1의 텍스트 색상을 어둡게 만들었던 규칙을
+ * 모두 삭제하여 기본값(흰색)을 따르도록 합니다.
+ */

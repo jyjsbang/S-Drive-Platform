@@ -1,0 +1,83 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+        sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #f9fafb;
+    color: #1f2937;
+}
+
+/* --- (★수정된 부분★) --- */
+
+/* 1. 기본 킥보드 아이콘 오버레이 스타일 (기존과 동일) */
+.pm-icon-overlay {
+    background-color: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color: #4b5563; /* 기본 아이콘 색상 */
+}
+.pm-icon-overlay svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* 2. 대시보드용 '상태별' 아이콘 색상 (★수정★) */
+.pm-icon-overlay.status-running {
+    background-color: #3b82f6; /* 파랑 */
+    border-color: #2563eb;
+    color: white; /* SVG 아이콘 색상 */
+}
+.pm-icon-overlay.status-error {
+    background-color: #ef4444; /* 빨강 */
+    border-color: #dc2626;
+    color: white;
+}
+/* (★제거★) '배터리 부족' 상태 제거 
+.pm-icon-overlay.status-low-battery {
+    background-color: #f59e0b; 
+    border-color: #d97706;
+    color: white;
+}
+*/
+
+/* 3. (★새로 추가★) 실시간 관제용 '점수별' 아이콘 색상 */
+
+/* 81-100점 (파랑) - .high */
+.pm-icon-overlay.high {
+    background-color: #3b82f6;
+    border-color: #2563eb;
+    color: white;
+}
+/* 61-80점 (초록) - .mid (image_728029.png 참고) */
+.pm-icon-overlay.mid {
+    background-color: #34d399; /* 초록색 */
+    border-color: #059669;
+    color: white;
+}
+/* 21-60점 (주황) - .low */
+.pm-icon-overlay.low {
+    background-color: #f59e0b;
+    border-color: #d97706;
+    color: white;
+}
+/* 0-20점 (빨강) - .danger */
+.pm-icon-overlay.danger {
+    background-color: #ef4444;
+    border-color: #dc2626;
+    color: white;
+}

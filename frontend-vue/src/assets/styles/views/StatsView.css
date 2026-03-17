@@ -1,0 +1,248 @@
+/*
+  StatsView.vue의 메인 컨테이너
+*/
+.stats-container {
+    height: 100%;
+    overflow-y: auto;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    background-color: #f9fafb;
+}
+
+/* 페이지 헤더 (제목 + 필터) */
+.stats-header {
+    display: flex;
+    justify-content: flex-end; /* 필터를 오른쪽으로 정렬 */
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 16px;
+    flex-shrink: 0;
+}
+
+.filter-controls {
+    display: flex;
+    gap: 16px;
+    align-items: flex-end;
+}
+
+/* (★핵심 수정★) 날짜 input과 라벨을 묶는 래퍼 */
+.filter-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    width: 150px; /* 너비 지정 */
+}
+
+/* (★핵심 수정★) '시작일', '종료일' 라벨 스타일 */
+.filter-label {
+    display: block; /* 라벨이 한 줄을 차지하도록 */
+    font-size: 0.875rem; /* 14px */
+    font-weight: 500;
+    color: #4b5563; /* gray-600 */
+    padding-left: 4px;
+}
+
+/* KPI 카드 그리드 (4열) */
+.kpi-grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    flex-shrink: 0;
+}
+
+/* KPI 카드 그리드 (3열) */
+.kpi-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    flex-shrink: 0;
+}
+
+/* 트렌드 섹션 (1열) */
+.trend-section {
+    flex-shrink: 0;
+}
+
+/* 메인 통계 그리드 (2열) */
+.stats-main-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    flex-shrink: 0;
+    align-items: stretch; /* 카드 높이 동일하게 */
+}
+
+/* --- 차트/테이블 공용 스타일 --- */
+
+.chart-wrapper {
+    position: relative;
+    width: 100%;
+    min-height: 200px;
+    flex-grow: 1;
+}
+.table-content-wrapper {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 파이 차트와 범례를 감싸는 래퍼 (가로 배치) */
+.chart-content-wrapper-horizontal {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    height: 100%;
+}
+
+/* 파이 차트 래퍼 (크기 고정) */
+.chart-wrapper-pie {
+    position: relative;
+    height: 220px;
+    width: 220px;
+    flex-shrink: 0;
+}
+
+/* 파이 차트 범례 래퍼 (남은 공간 차지) */
+.chart-content-wrapper-horizontal .legend-wrapper {
+    flex-grow: 1;
+    min-width: 150px;
+}
+
+/* 파이 차트 범례 스타일 */
+.legend-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.875rem;
+}
+.legend-color {
+    width: 12px;
+    height: 12px;
+    border-radius: 4px;
+    flex-shrink: 0;
+}
+.legend-label {
+    color: #4b5563;
+}
+.legend-value {
+    margin-left: auto;
+    font-weight: 600;
+    color: #1f2937;
+}
+
+/* 지역별 점수 프로그레스 바 */
+.progress-bar-container-stats {
+    width: 100%;
+    max-width: 200px;
+    height: 8px;
+    background-color: #e5e7eb;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-left: auto;
+}
+.progress-bar-stats {
+    height: 100%;
+    border-radius: 4px;
+}
+
+/* CommonUI.css에서 테이블 관련 스타일 복사
+*/
+.info-table-wrapper {
+    position: relative;
+    width: 100%;
+    overflow-x: auto;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 0.625rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+.info-table {
+    width: 100%;
+    caption-side: bottom;
+    font-size: 0.875rem; /* text-sm */
+    text-align: left;
+    border-collapse: collapse;
+}
+.info-table-header {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    background-color: #f9fafb; /* gray-50 */
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+.info-table-head {
+    height: 40px; /* h-10 */
+    padding: 0 0.75rem; /* px-2 (custom) */
+    text-align: left;
+    vertical-align: middle;
+    font-weight: 500; /* font-medium */
+    color: #1f2937; /* foreground (기존 색상) */
+    white-space: nowrap;
+}
+.info-table-body tr:last-child {
+    border-bottom: 0;
+}
+.info-table-row {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    transition: background-color 0.2s;
+}
+.info-table-row:hover {
+    background-color: #f3f4f6; /* muted/50 (기존 색상) */
+}
+.info-table-cell {
+    padding: 0.75rem 0.75rem; /* p-2 (custom) */
+    vertical-align: middle;
+    white-space: nowrap;
+    color: #1f2937;
+}
+
+/* --- 반응형 --- */
+@media (max-width: 1280px) {
+    .kpi-grid-4,
+    .kpi-grid-3 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .stats-main-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .kpi-grid-4,
+    .kpi-grid-3 {
+        grid-template-columns: 1fr;
+    }
+    .stats-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .filter-controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .filter-controls > * {
+        width: 100%;
+    }
+    .filter-item {
+        width: 100%;
+    }
+    .chart-content-wrapper-horizontal {
+        flex-direction: column;
+        min-height: auto;
+    }
+    .chart-wrapper-pie {
+        width: 100%;
+        max-width: 220px;
+    }
+}

@@ -1,0 +1,14 @@
+/* (★핵심 수정★)
+  이 컨테이너가 100% 높이를 차지하고,
+  내부 스크롤이 가능하도록 overflow: hidden을 설정합니다.
+  padding을 여기서 관리합니다.
+*/
+.realtime-container {
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    gap: 24px;
+
+    height: 100%;
+    overflow: hidden; /* 이 컨테이너는 스크롤되지 않음 */
+    padding: 24px;
+}

@@ -1,0 +1,239 @@
+.user-list-container {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    padding: 24px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.card-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #1f2937;
+    margin: 0 0 20px 0;
+    flex-shrink: 0;
+}
+
+.search-bar-wrapper {
+    padding: 0 4px 16px 4px;
+    flex-shrink: 0;
+}
+
+.user-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    overflow-y: auto; /* <-- ★★★ 여기가 스크롤됩니다 ★★★ */
+    flex-grow: 1; /* <-- 남은 높이 꽉 채우기 */
+}
+
+.user-item {
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 12px;
+    position: relative; /* (★수정★) "X" 버튼의 위치 기준 */
+}
+
+.user-id-wrapper {
+    margin-bottom: 16px;
+}
+.user-id-wrapper .info-label {
+    color: #6b7280;
+    margin-bottom: 4px;
+    display: block;
+    font-size: 0.875rem;
+}
+.user-id-value {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #111827;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* (★신규★) 사용자 ID와 PM ID를 2열로 나누는 그리드 */
+.id-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+/* (★신규★) PM ID 텍스트는 사용자 ID보다 약간 작게 */
+.user-id-value.pm-id-value {
+    font-size: 1.05rem; /* 폰트 크기 살짝 줄임 */
+    color: #374151; /* 폰트 색상 살짝 연하게 */
+    font-weight: 500;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+.info-item {
+    font-size: 0.875rem;
+}
+.info-label {
+    color: #6b7280;
+    margin-bottom: 4px;
+    display: block;
+}
+.info-value {
+    color: #1f2937;
+    font-weight: 500;
+}
+.score-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border-top: 1px dashed #e5e7eb;
+    padding-top: 12px;
+}
+.score-label {
+    font-size: 0.875rem;
+    color: #6b7280;
+    flex-shrink: 0;
+}
+.score-bar-value-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.score-value {
+    font-size: 1.75rem;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+.score-value.high {
+    color: #3b82f6;
+}
+.score-value.mid {
+    color: #34d399;
+}
+.score-value.low {
+    color: #f59e0b;
+}
+.score-value.danger {
+    color: #ef4444;
+}
+
+.score-bar-container {
+    width: 100%;
+    height: 8px;
+    background-color: #e5e7eb;
+    border-radius: 4px;
+    overflow: hidden;
+}
+.score-bar {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 0.3s ease-in-out;
+}
+.score-bar.high {
+    background-color: #3b82f6;
+}
+.score-bar.mid {
+    background-color: #34d399;
+}
+.score-bar.low {
+    background-color: #f59e0b;
+}
+.score-bar.danger {
+    background-color: #ef4444;
+}
+
+.loading-text {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #9ca3af;
+    font-size: 0.875rem;
+}
+.empty-list-text {
+    min-height: 200px;
+    font-weight: 500;
+}
+
+.pagination-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #4b5563; /* gray-600 */
+    margin-top: 16px; /* Space from list */
+    padding: 16px 4px 0 4px; /* Space from bottom */
+    border-top: 1px solid #e5e7eb;
+    flex-shrink: 0;
+}
+.pagination-buttons {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; /* gap-2 */
+}
+.pagination-buttons .page-info {
+    font-size: 0.875rem;
+    font-weight: 500;
+    padding: 0 0.5rem;
+    color: #4b5563;
+}
+.pagination-buttons .info-button {
+    height: 32px; /* h-8 */
+    padding: 0 0.75rem; /* px-3 */
+    background-color: #ffffff;
+    color: #1f2937;
+    border-color: #e5e7eb;
+}
+.pagination-buttons .info-button:hover {
+    background-color: #f9fafb;
+}
+.pagination-buttons .info-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background-color: #ffffff;
+    color: #9ca3af;
+}
+
+.user-item.has-accident {
+    border-color: #ef4444; /* red-500 */
+    background-color: #fee2e2; /* red-100 */
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.2);
+}
+
+.accident-badge {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #dc2626; /* red-600 */
+    background-color: #fecaca; /* red-200 */
+    padding: 2px 8px;
+    border-radius: 99px;
+    white-space: nowrap;
+}
+
+/* (★신규★) "X" (지우기) 버튼 스타일 */
+.accident-dismiss-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: rgba(239, 68, 68, 0.7); /* 반투명 빨강 */
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    z-index: 10;
+    transition: background-color 0.2s;
+}
+.accident-dismiss-btn:hover {
+    background-color: rgba(220, 38, 38, 1); /* 진한 빨강 */
+}

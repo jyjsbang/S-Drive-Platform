@@ -1,0 +1,146 @@
+/* 새 팝업(MapModal.vue)을 위한 CSS 
+  CommonUI.css의 InfoDialog 스타일을 기반으로 크기만 키움
+*/
+.map-modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 60; /* InfoDialog(50)보다 위에 표시 */
+    background-color: rgba(0, 0, 0, 0.5);
+    animation: fadeIn 0.3s ease-out;
+}
+
+.map-modal-content {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 60;
+
+    /* (★수정★) 화면의 90% 크기로 설정 */
+    width: 90vw;
+    height: 90vh;
+    max-width: 1600px;
+
+    transform: translate(-50%, -50%);
+    border: 1px solid #e5e7eb; /* border */
+    background-color: #ffffff;
+    padding: 1.5rem; /* p-6 */
+    border-radius: 0.625rem; /* rounded-lg */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    animation: zoomIn 0.3s ease-out;
+
+    /* (★추가★) 헤더/바디를 세로로 정렬하고, 바디가 남은 공간을 채우도록 */
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.map-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0; /* 줄어들지 않음 */
+}
+
+.map-modal-title {
+    font-size: 1.25rem; /* text-lg */
+    font-weight: 600; /* font-semibold */
+    color: #111827;
+}
+
+.map-modal-close-btn {
+    border-radius: 4px;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    color: #4b5563;
+}
+.map-modal-close-btn:hover {
+    opacity: 1;
+}
+
+.map-modal-body {
+    flex-grow: 1; /* (★추가★) 남은 공간 모두 차지 */
+    border-radius: 0.5rem;
+    overflow: hidden;
+    border: 1px solid #e5e7eb;
+    position: relative; /* (★추가★) 맵 컨트롤을 absolute로 띄우기 위한 기준 */
+}
+
+#large-map-container {
+    width: 100%;
+    height: 100%;
+}
+
+/* 지도 로딩 중 텍스트 (MapModal용) */
+.map-text {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #9ca3af;
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+
+/* InfoDialog에서 가져온 애니메이션 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+/* * (★신규★) 
+ * 맵 컨트롤 버튼 스타일 (RealtimeMap.css에서 가져옴) 
+*/
+.map-controls {
+    position: absolute;
+    bottom: 24px;
+    right: 24px;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 2px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.map-control-btn {
+    width: 30px;
+    height: 30px;
+    background-color: #ffffff;
+    border: none;
+    padding: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.map-control-btn:hover {
+    background-color: #f9fafb;
+}
+.map-control-btn svg {
+    width: 100%;
+    height: 100%;
+    color: #374151;
+}
+.map-control-divider {
+    height: 1px;
+    background-color: #e5e7eb;
+}
